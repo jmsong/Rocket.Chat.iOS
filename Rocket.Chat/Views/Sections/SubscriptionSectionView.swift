@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SubscriptionCreateViewDelegate: class {
+    func buttonCreateDidPressed()
+}
+
 final class SubscriptionSectionView: UIView {
+
+    weak var delegate: SubscriptionCreateViewDelegate?
 
     fileprivate let defaultIconWidthConstraint = CGFloat(18)
     fileprivate let defaultTitleLeftConstraint = CGFloat(8)
@@ -17,6 +23,7 @@ final class SubscriptionSectionView: UIView {
     @IBOutlet fileprivate weak var iconWidthConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var labelTitle: UILabel!
     @IBOutlet fileprivate weak var labelTitleLeftSpacingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonCreate: UIButton!
 
     func setIconName(_ iconName: String?) {
         if let iconName = iconName {
@@ -32,6 +39,10 @@ final class SubscriptionSectionView: UIView {
 
     func setTitle(_ title: String?) {
         labelTitle.text = title?.uppercased()
+    }
+
+    @IBAction func buttonLoadMoreDidPressed(_ sender: Any) {
+        delegate?.buttonCreateDidPressed()
     }
 
 }

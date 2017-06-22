@@ -12,7 +12,8 @@ extension URL {
 
     func validateURL() -> URL? {
         var components = URLComponents()
-        components.scheme = "https"
+        // components.scheme = "https"
+        components.scheme = "http"
         components.host = self.host != nil ? self.host : self.path
         components.path = self.host != nil ? self.path : ""
         components.port = self.port != nil ? self.port : nil
@@ -25,7 +26,8 @@ extension URL {
     func socketURL() -> URL? {
         let pathComponents = self.pathComponents
         var components = URLComponents()
-        components.scheme = "wss"
+        // components.scheme = "wss"
+        components.scheme = "ws"
         components.host = self.host != nil ? self.host : self.path
         components.path = self.host != nil ? self.path : ""
         components.port = self.port != nil ? self.port : nil

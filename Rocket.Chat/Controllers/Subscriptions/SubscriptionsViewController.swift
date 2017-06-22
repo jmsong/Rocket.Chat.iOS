@@ -143,6 +143,12 @@ extension SubscriptionsViewController {
             tableView.tableFooterView = footerView
         }
     }
+    
+    func create(channel name: String, with usernames: [String], readOnly: Bool) {
+        SubscriptionManager.create(channel: name, with: usernames, readOnly: false) { result in
+            print("response from create channel: \(result.result)")
+        }
+    }
 
     func searchOnSpotlight(_ text: String = "") {
         tableView.tableFooterView = nil
@@ -360,6 +366,14 @@ extension SubscriptionsViewController: UITableViewDelegate {
             return nil
         }
 
+        // TungTM added
+        view.buttonCreate.isHidden = true
+        let groupName = group["name"] ?? ""
+        if groupName.contains(localized("subscriptions.channels")) ||
+            groupName.contains(localized("subscriptions.direct_messages")) {
+            view.buttonCreate.isHidden = false
+            view.delegate = self
+        }
         view.setIconName(group["icon"])
         view.setTitle(group["name"])
 
@@ -434,6 +448,13 @@ extension SubscriptionsViewController: SubscriptionSearchMoreViewDelegate {
 
     func buttonLoadMoreDidPressed() {
         searchOnSpotlight(textFieldSearch.text ?? "")
+    }
+}
+
+extension SubscriptionsViewController: SubscriptionCreateViewDelegate {
+
+    func buttonCreateDidPressed() {
+        create(channel: "Test_from_iOS_channel", with: ["tung.tran", "jin.myung.song"], readOnly: false)
     }
 }
 

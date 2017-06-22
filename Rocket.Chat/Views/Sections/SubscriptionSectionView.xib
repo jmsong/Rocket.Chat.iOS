@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,24 +31,41 @@
                         <constraint firstAttribute="height" constant="18" id="MT5-Rh-8Wr"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5s-32-6AO">
+                    <rect key="frame" x="342" y="8.5" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="9jj-sr-RoT"/>
+                        <constraint firstAttribute="height" constant="28" id="aQe-rg-WJi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="+">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonLoadMoreDidPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="3bR-oe-Mei"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.015686274510000001" green="0.28627450980000002" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gOj-Q6-yQs" secondAttribute="bottom" constant="10" id="8jm-eK-xeC"/>
+                <constraint firstAttribute="trailing" secondItem="F5s-32-6AO" secondAttribute="trailing" constant="5" id="DMq-rV-jVb"/>
                 <constraint firstItem="J3p-QS-8YN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="N4d-UE-7PT"/>
                 <constraint firstAttribute="trailing" secondItem="gOj-Q6-yQs" secondAttribute="trailing" constant="15" id="S8t-kq-5ZF"/>
                 <constraint firstAttribute="bottom" secondItem="J3p-QS-8YN" secondAttribute="bottom" constant="12" id="qB1-kM-79p"/>
                 <constraint firstItem="gOj-Q6-yQs" firstAttribute="leading" secondItem="J3p-QS-8YN" secondAttribute="trailing" constant="8" id="s55-O1-olY"/>
+                <constraint firstItem="F5s-32-6AO" firstAttribute="baseline" secondItem="gOj-Q6-yQs" secondAttribute="baseline" id="zyF-qk-W7G"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="buttonCreate" destination="F5s-32-6AO" id="TU6-kW-NmL"/>
                 <outlet property="icon" destination="J3p-QS-8YN" id="QLb-bR-DRT"/>
                 <outlet property="iconWidthConstraint" destination="5lE-Of-Vko" id="DdX-E5-Oac"/>
                 <outlet property="labelTitle" destination="gOj-Q6-yQs" id="8Sl-KN-Raw"/>
                 <outlet property="labelTitleLeftSpacingConstraint" destination="s55-O1-olY" id="Dh0-1q-B9z"/>
             </connections>
-            <point key="canvasLocation" x="-5" y="52"/>
+            <point key="canvasLocation" x="-5.5" y="52"/>
         </view>
     </objects>
 </document>

@@ -243,6 +243,19 @@ struct SubscriptionManager {
         }
     }
 
+    static func create(channel name: String, with usernames: [String], readOnly: Bool, completion: @escaping MessageCompletion) {
+        let request = [
+            "msg": "method",
+            "method": "createChannel",
+            "params": [name, usernames, readOnly]
+            ] as [String : Any]
+
+        SocketManager.send(request) { response in
+            guard !response.isError() else { return Log.debug(response.result.string) }
+            completion(response)
+        }
+    }
+
     static func getRoom(byName name: String, completion: @escaping MessageCompletion) {
         let request = [
             "msg": "method",
